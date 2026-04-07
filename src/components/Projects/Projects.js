@@ -24,7 +24,7 @@ function Projects() {
               isBlog={false}
               title="SocioFitt — Social Fitness Platform"
               description="Engineered a scalable backend using Django REST Framework with 200+ RESTful APIs. Designed PostgreSQL schemas, leveraged Redis caching and Celery. Implemented JWT authentication and built an SEO-optimized frontend using Next.js and React.js. Deployed on AWS."
-              ghLink="https://github.com/sidhu-26"
+              ghLink="https://sociofitt.com"
             />
           </Col>
 
@@ -32,9 +32,9 @@ function Projects() {
             <ProjectCard
               imgPath={bitsOfCode}
               isBlog={false}
-              title="Stack Overflow Clone (Full-Stack Django System)"
+              title="DevAsk Developer Q&A Platform (Stack Overflow-inspired)"
               description="Tech: Python, Django, PostgreSQL, Redis, Bootstrap, jQuery. Built a scalable Q&A platform replicating core Stack Overflow features including question/answer workflows, reputation engine with badges/privileges, moderation system, bounty system, and real-time notifications using Redis. Engineered asynchronous workflows with Django signals and Celery."
-              ghLink="https://github.com/sidhu-26/stackoverflow.git"
+              ghLink="https://github.com/sidhu-26/DevAsk"
             />
           </Col>
 
@@ -42,9 +42,9 @@ function Projects() {
             <ProjectCard
               imgPath={editor}
               isBlog={false}
-              title="Talkynq – Real-Time Communication Platform"
+              title="SyncSpace – Real-Time Communication Platform"
               description="Tech: Python, Django, Django Channels, Redis, Agora SDK, Bootstrap. Developed a real-time messaging platform supporting one-to-one chats, public rooms, and group video calling via Agora SDK. Features include a social graph (friend system), real-time notifications, and secure authentication. Subdivided into modular apps for scalability."
-              ghLink="https://github.com/sidhu-26/Talkynq.git"
+              ghLink="https://github.com/sidhu-26/SyncSpace"
             />
           </Col>
         </Row>
