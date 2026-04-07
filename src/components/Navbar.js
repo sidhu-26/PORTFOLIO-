@@ -15,6 +15,8 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 
+import logo from "../Assets/sidlogo.svg";
+
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
@@ -38,7 +40,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          <strong className="purple" style={{ fontSize: "1.8em", letterSpacing: "1px" }}>SP.</strong>
+          <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"

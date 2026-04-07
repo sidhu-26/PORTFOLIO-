@@ -32,9 +32,9 @@ function Projects() {
             <ProjectCard
               imgPath={bitsOfCode}
               isBlog={false}
-              title="2nd Project — Template"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Brief one-liner about what the project does and the problem it solves. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Key technical decision or notable implementation detail. Ut enim ad minim veniam, quis nostrud exercitation. Outcome, metric, or impact if available."
-              ghLink="https://github.com/sidhu-26"
+              title="Stack Overflow Clone (Full-Stack Django System)"
+              description="Tech: Python, Django, PostgreSQL, Redis, Bootstrap, jQuery. Built a scalable Q&A platform replicating core Stack Overflow features including question/answer workflows, reputation engine with badges/privileges, moderation system, bounty system, and real-time notifications using Redis. Engineered asynchronous workflows with Django signals and Celery."
+              ghLink="https://github.com/sidhu-26/stackoverflow.git"
             />
           </Col>
 
@@ -42,9 +42,9 @@ function Projects() {
             <ProjectCard
               imgPath={editor}
               isBlog={false}
-              title="3rd Project — Template"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Brief one-liner about what the project does and the problem it solves. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Key technical decision or notable implementation detail. Ut enim ad minim veniam, quis nostrud exercitation. Outcome, metric, or impact if available."
-              ghLink="https://github.com/sidhu-26"
+              title="Talkynq – Real-Time Communication Platform"
+              description="Tech: Python, Django, Django Channels, Redis, Agora SDK, Bootstrap. Developed a real-time messaging platform supporting one-to-one chats, public rooms, and group video calling via Agora SDK. Features include a social graph (friend system), real-time notifications, and secure authentication. Subdivided into modular apps for scalability."
+              ghLink="https://github.com/sidhu-26/Talkynq.git"
             />
           </Col>
         </Row>
