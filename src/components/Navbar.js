@@ -95,11 +95,11 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                href="https://siddaarth-portfolio.netlify.app"
-                target="_blank"
-                rel="noreferrer"
+                as={Link}
+                to="/blog"
+                onClick={() => updateExpanded(false)}
               >
-                <CgWebsite style={{ marginBottom: "2px" }} /> Web
+                <CgWebsite style={{ marginBottom: "2px" }} /> Blog
               </Nav.Link>
             </Nav.Item>
 
