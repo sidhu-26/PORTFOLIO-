@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Container, Row, Col, Card, Form, InputGroup } from "react-bootstrap";
 import Particle from "../Particle";
-import blogImg1 from "../../Assets/Projects/blog.png";
-import blogImg2 from "../../Assets/Projects/chatify.png";
-import blogImg3 from "../../Assets/Projects/codeEditor.png";
-import { FiArrowUpRight, FiSearch, FiArrowLeft, FiShare2, FiCheck } from "react-icons/fi";
+import { FiSearch, FiArrowLeft, FiShare2, FiCheck } from "react-icons/fi";
 import DjangoBlog from "./DjangoBlog";
 
 const blogData = [
