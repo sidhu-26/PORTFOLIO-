@@ -1,15 +1,12 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
+import { profile } from "../../data/profile";
 
 function Type() {
   return (
     <Typewriter
       options={{
-        strings: [
-          "Full Stack Developer",
-          "Founding Engineer",
-          "Software Engineer",
-        ],
+        strings: profile.designations,
         autoStart: true,
         loop: true,
         deleteSpeed: 50,

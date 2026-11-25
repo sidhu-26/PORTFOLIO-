@@ -1,16 +1,13 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-
-import {
-  AiFillGithub,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import SocialLinks from "../Common/SocialLinks";
+import { profile } from "../../data/profile";
+import { Link } from "react-router-dom";
+import { FiArrowRight, FiFileText } from "react-icons/fi";
 
 function Home() {
   return (
@@ -18,92 +15,65 @@ function Home() {
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
+            <Row className="align-items-center">
+              <Col md={7} className="home-header">
+                  <h1 style={{ paddingBottom: 10 }} className="heading">
+                    Hi There!{" "}
+                    <span className="wave" role="img" aria-labelledby="wave">
+                      👋🏻
+                    </span>
+                  </h1>
 
-              <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> SIDDAARTH PT</strong>
-              </h1>
+                  <h1 className="heading-name">
+                    I'M
+                    <strong className="main-name"> {profile.name.toUpperCase()}</strong>
+                  </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
-              </div>
-            </Col>
+                    <div style={{ padding: "20px 0 30px", textAlign: "left", minHeight: "80px" }}>
+                      <Type />
+                    </div>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
-              <img
-                src={homeLogo}
-                alt="home pic"
-                className="img-fluid"
-                style={{ maxHeight: "450px" }}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </Container>
-      <Home2 />
+                    <p style={{ color: "#d0c9df", fontSize: "1.15em", textAlign: "left", lineHeight: "1.7", maxWidth: "620px" }}>
+                      {profile.summary}
+                    </p>
 
-      <Container>
-        <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
-          <Col md={12} className="home-about-social">
-            <h1>Find Me On</h1>
-            <p>
-              Feel free to <span className="purple">connect </span>with me
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/sidhu-26"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://leetcode.com/u/siddaarth_pt"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <SiLeetcode />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/siddaarth"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="mailto:siddaarth28@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiOutlineMail />
-                </a>
-              </li>
-            </ul>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  );
+                    <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "30px", justifyContent: "flex-start" }}>
+                      <Button as={Link} to="/project" variant="primary" style={{ padding: "12px 28px", fontSize: "1.05em" }}>
+                        Explore Projects &nbsp; <FiArrowRight />
+                      </Button>
+                      <Button as={Link} to="/resume" variant="outline-light" style={{ padding: "12px 28px", fontSize: "1.05em" }}>
+                        View Resume &nbsp; <FiFileText />
+                      </Button>
+                    </div>
+                  </Col>
+
+                    <Col md={5} style={{ paddingBottom: 20 }} className="text-center">
+                      <img
+                        src={homeLogo}
+                        alt="AI Engineer Illustration"
+                        className="img-fluid"
+                        style={{ maxHeight: "420px" }}
+                      />
+                    </Col>
+                  </Row>
+                </Container>
+              </Container>
+
+              <Home2 />
+
+              <Container>
+                  <Row style={{ paddingTop: "50px", paddingBottom: "70px" }}>
+                    <Col md={12} className="home-about-social">
+                      <h1>FIND ME ON</h1>
+                      <p>
+                        Feel free to <span className="purple">connect </span>with me
+                      </p>
+                      <SocialLinks />
+                    </Col>
+                  </Row>
+              </Container>
+            </section>
+            );
 }
 
-export default Home;
+            export default Home;

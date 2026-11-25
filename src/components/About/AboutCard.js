@@ -1,50 +1,52 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import { profile } from "../../data/profile";
 
 function AboutCard() {
+  const { about, company } = profile;
+
   return (
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p style={{ textAlign: "justify" }}>
-            Hi everyone! I’m <span className="purple">Siddaarth PT</span>{" "}
-            from <span className="purple">Chennai, India</span>.
-            <br />
-            I’m currently working as the{" "}
-            <span className="purple">Director of Software Engineering</span> at{" "}
-            <span className="purple">FluentX</span>.
-            <br />I hold a Bachelor of Engineering in{" "}
-            <span className="purple">Mechanical Engineering</span> from{" "}
-            <span className="purple">SRM Easwari Engineering College</span>.
-            <br />
-            <br />
-            Outside of coding, I'm an active athlete competing in multiple sports:
-          </p>
+            <p style={{ textAlign: "justify", lineHeight: "1.8" }}>
+              Hi everyone! I’m <span className="purple">{profile.name}</span>{" "}
+              from <span className="purple">{profile.location}</span>.
+              <br />
+              I’m working as an <span className="purple">{profile.title}</span> at{" "}
+              <span className="purple">{company.name}</span>.
+              <br />
+              <br />
+              {about.intro}
+              <br />
+              <br />
+              I hold a <span className="purple">{about.education.degree}</span> from{" "}
+              <span className="purple">{about.education.institution}</span> ({about.education.period}).
+              <br />
+              <small style={{ color: "#a588c0", display: "block", marginTop: "6px" }}>
+                {about.education.notes}
+              </small>
+              <br />
+              Outside of engineering and AI systems, I am an active competitor in athletics:
+            </p>
 
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Volleyball 🏐
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Football ⚽
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Swimming 🏊‍♂️
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Handball 🤾‍♂️
-            </li>
-          </ul>
+            <ul>
+              {about.interests.map((item) => (
+                <li className="about-activity" key={item.name}>
+                  <ImPointRight /> {item.name} {item.icon}
+                </li>
+              ))}
+            </ul>
 
-          <p style={{ color: "rgb(155 126 172)" }}>
-            "Build scalable systems from first principles."{" "}
-          </p>
-          <footer className="blockquote-footer">Siddaarth PT</footer>
-        </blockquote>
-      </Card.Body>
-    </Card>
-  );
+              <p style={{ color: "rgb(155 126 172)", marginTop: "20px" }}>
+                "{about.philosophy}"
+              </p>
+              <footer className="blockquote-footer">{profile.name}</footer>
+            </blockquote>
+          </Card.Body>
+        </Card>
+        );
 }
 
-export default AboutCard;
+        export default AboutCard;

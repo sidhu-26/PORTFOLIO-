@@ -1,56 +1,63 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+import SectionHeading from "../Common/SectionHeading";
+import { projects } from "../../data/projects";
 
 function Projects() {
+  const [filter, setFilter] = useState("all");
+
+  const categories = [
+    { key: "all", label: "All Projects" },
+    { key: "ai-ml", label: "AI & Machine Learning" },
+    { key: "software-engineering", label: "Software Engineering" }
+  ];
+
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((p) => p.category === filter);
+
   return (
-    <Container fluid className="project-section">
-      <Particle />
-      <Container>
-        <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
-        </h1>
-        <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
-        </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={chatify}
-              isBlog={false}
-              title="SocioFitt — Social Fitness Platform"
-              description="Engineered a scalable backend using Django REST Framework with 200+ RESTful APIs. Designed PostgreSQL schemas, leveraged Redis caching and Celery. Implemented JWT authentication and built an SEO-optimized frontend using Next.js and React.js. Deployed on AWS."
-              ghLink="https://sociofitt.com"
+      <Container fluid className="project-section" style={{ minHeight: "100vh", paddingTop: "100px" }}>
+        <Particle />
+        <Container>
+            <SectionHeading
+              title="Engineering"
+              highlight="Projects"
+              subtitle="Production-grade AI systems, agentic architectures, and distributed backend platforms."
             />
-          </Col>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bitsOfCode}
-              isBlog={false}
-              title="DevAsk Developer Q&A Platform (Stack Overflow-inspired)"
-              description="Tech: Python, Django, PostgreSQL, Redis, Bootstrap, jQuery. Built a scalable Q&A platform replicating core Stack Overflow features including question/answer workflows, reputation engine with badges/privileges, moderation system, bounty system, and real-time notifications using Redis. Engineered asynchronous workflows with Django signals and Celery."
-              ghLink="https://github.com/sidhu-26/DevAsk"
-            />
-          </Col>
+            {/* Filter buttons */}
+            <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "40px", flexWrap: "wrap" }}>
+              {categories.map((cat) => (
+                <Button
+                  key={cat.key}
+                  variant={filter === cat.key ? "primary" : "outline-light"}
+                  onClick={() => setFilter(cat.key)}
+                  style={{
+                    borderRadius: "20px",
+                    padding: "8px 20px",
+                    fontSize: "0.95em",
+                    fontWeight: filter === cat.key ? "600" : "400"
+                  }}
+                >
+                  {cat.label}
+                </Button>
+              ))}
+            </div>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={editor}
-              isBlog={false}
-              title="SyncSpace – Real-Time Communication Platform"
-              description="Tech: Python, Django, Django Channels, Redis, Agora SDK, Bootstrap. Developed a real-time messaging platform supporting one-to-one chats, public rooms, and group video calling via Agora SDK. Features include a social graph (friend system), real-time notifications, and secure authentication. Subdivided into modular apps for scalability."
-              ghLink="https://github.com/sidhu-26/SyncSpace"
-            />
-          </Col>
-        </Row>
+            <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+              {filteredProjects.map((project) => (
+                <Col lg={4} md={6} className="project-card mb-4" key={project.id}>
+                  <ProjectCard project={project} />
+                </Col>
+              ))}
+            </Row>
+        </Container>
       </Container>
-    </Container>
-  );
+      );
 }
 
-export default Projects;
+      export default Projects;
